@@ -1,25 +1,16 @@
 import React from 'react';
-import logo from '../../images/logo.svg';
 import './App.css';
+import CatalogItem from '../autoCard';
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <CatalogItem productName="Llantas de acero" productPrice="38,9" productDescription="Llanta de chapa compatible con: Seat Cordoba (2002 - 2008) ; Seat Ibiza (07/2008 - 06/2017) " productImg="https://img4-pneusonlinesuiss.netdna-ssl.com/produit/jante/250/face/jante-tole_noir.jpg"></CatalogItem>
       </header>
-    </div>
+    </div >
   );
 }
 
