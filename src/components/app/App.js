@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
+import AppBar from '../appBar';
 import CatalogItem from '../autoCard';
+import SearchBar from '../searchBar/searchBar';
+import { ProductContext } from '../context/ProductContext';
 
 
 
 function App() {
+  const products = useContext(ProductContext);
+
   return (
     <div className="App">
+      <AppBar></AppBar>
       <header className="App-header">
-        <CatalogItem productName="Llantas de acero" productPrice="38,9" productDescription="Llanta de chapa compatible con: Seat Cordoba (2002 - 2008) ; Seat Ibiza (07/2008 - 06/2017) " productImg="https://img4-pneusonlinesuiss.netdna-ssl.com/produit/jante/250/face/jante-tole_noir.jpg"></CatalogItem>
+        <SearchBar></SearchBar>
+        <CatalogItem productName={products[0].name} productPrice={products[0].price} productDescription={products[0].description} productImg={products[0].image}></CatalogItem>
       </header>
     </div >
   );
