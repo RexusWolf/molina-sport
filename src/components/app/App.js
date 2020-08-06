@@ -1,23 +1,34 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './App.css';
 import AppBar from '../appBar';
-import CatalogItem from '../autoCard';
-import SearchBar from '../searchBar/searchBar';
-import { ProductContext } from '../context/ProductContext';
-
+import Catalog from '../../routes/catalog'
+import About from '../../routes/about'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
-  const products = useContext(ProductContext);
 
   return (
-    <div className="App">
-      <AppBar></AppBar>
-      <header className="App-header">
-        <SearchBar></SearchBar>
-        <CatalogItem productName={products[0].name} productPrice={products[0].price} productDescription={products[0].description} productImg={products[0].image}></CatalogItem>
-      </header>
-    </div >
+
+    <Router>
+      <div className="App">
+        <AppBar></AppBar>
+        <header className="App-header">
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/catalog">
+              <Catalog />
+            </Route>
+          </Switch>
+        </header>
+      </div >
+    </Router>
   );
 }
 
