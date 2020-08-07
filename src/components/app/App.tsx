@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import AppBar from '../appBar';
+import AppBar from '../appBar/appBar';
 import Catalog from '../../routes/catalog'
 import About from '../../routes/about'
 import {
