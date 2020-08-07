@@ -1,3 +1,1 @@
-// re-exports the contents of componemts
-
-// export { default as Button } from './button';
+export { CatalogItem as autoCard } from './autoCard/autoCard';

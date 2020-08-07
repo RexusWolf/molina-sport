@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import CatalogItem from '../../components/autoCard/autoCard';
+import { CatalogItem } from '../../components/autoCard/autoCard';
 import SearchBar from '../../components/searchBar/searchBar';
 
 import { ProductContext } from '../../context/ProductContext';
