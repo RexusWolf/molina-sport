@@ -19,11 +19,11 @@ function App() {
         <AppBar></AppBar>
         <header className="App-header">
           <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
             <Route path="/catalog">
               <Catalog />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
           </Switch>
         </header>
