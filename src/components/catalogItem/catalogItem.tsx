@@ -19,6 +19,7 @@ export const CatalogItem: React.FC<CardProps> = ({ productName, productImg, prod
   <Card>
     <CardActionArea>
       <CardMedia
+        data-testid="item-img"
         component="img"
         height="320"
         image={productImg}

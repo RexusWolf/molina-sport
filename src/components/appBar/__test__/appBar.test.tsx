@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppBar from './appBar'
+import AppBar from '../appBar'
 
 import "@testing-library/jest-dom/extend-expect"
 

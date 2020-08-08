@@ -23,6 +23,7 @@ exports[`matches snapshot 1`] = `
   >
     <img
       className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+      data-testid="item-img"
       height="320"
       src="imgurl"
     />
