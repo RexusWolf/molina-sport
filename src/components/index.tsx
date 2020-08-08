@@ -1,1 +1,1 @@
-export { CatalogItem as autoCard } from './autoCard/autoCard';
+export { CatalogItem } from './catalogItem/catalogItem';

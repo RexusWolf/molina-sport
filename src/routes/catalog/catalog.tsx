@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { CatalogItem } from '../../components/autoCard/autoCard';
+import { CatalogItem } from '../../components/catalogItem/catalogItem';
 import SearchBar from '../../components/searchBar/searchBar';
 
-import { ProductContext } from '../../context/ProductContext';
+import { ProductContext } from '../../hooks/context/ProductContext';
 
 export default function Catalog() {
   const products = useContext(ProductContext);
