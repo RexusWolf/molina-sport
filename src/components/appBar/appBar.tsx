@@ -14,13 +14,13 @@ export default function ButtonAppBar() {
         <Toolbar>
 
           <Link to="/catalog">
-            <Button color="inherit">Catálogo</Button>
+            <Button color="secondary">Catálogo</Button>
           </Link>
-          <Typography variant="h6" className="title">
+          <Typography variant="h5" className="title">
             NEUMÁTICOS MOLINA SPORT
           </Typography>
           <Link to="/about">
-            <Button color="inherit">About</Button>
+            <Button color="secondary">About</Button>
           </Link>
         </Toolbar>
       </AppBar>
