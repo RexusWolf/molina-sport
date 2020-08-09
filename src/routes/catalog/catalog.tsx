@@ -4,7 +4,6 @@ import { SearchBar } from '../../components/searchBar/searchBar';
 
 import { ProductContext } from '../../hooks/context/ProductContext';
 import { Grid } from '@material-ui/core';
-import './catalog.css'
 
 export default function Catalog() {
   const [searchValue, setSearchValue] = useState('')
