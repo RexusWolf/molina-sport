@@ -12,7 +12,6 @@ export default function ButtonAppBar() {
     <div data-testid="appbar">
       <AppBar position="static">
         <Toolbar>
-
           <Link to="/catalog">
             <Button color="secondary">Catálogo</Button>
           </Link>

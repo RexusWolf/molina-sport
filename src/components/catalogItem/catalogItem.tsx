@@ -16,7 +16,7 @@ interface CardProps {
 }
 
 const cardStyle = {
-  height: '520px'
+  height: '520px',
 }
 
 const cardInfoStyle = {

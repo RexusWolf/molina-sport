@@ -37,5 +37,5 @@ const CssTextField = withStyles({
 })(TextField);
 
 export const SearchBar: React.FC<SearchProps> = ({ onChange }) => (
-  <CssTextField variant="outlined" inputProps={inputProps} label="Buscador" margin="dense" InputLabelProps={inputProps} onChange={(event) => onChange(event.target.value)} />
+  <CssTextField fullWidth variant="outlined" inputProps={inputProps} label="Buscador" margin="dense" InputLabelProps={inputProps} onChange={(event) => onChange(event.target.value)} />
 );

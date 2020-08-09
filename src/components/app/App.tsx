@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <AppBar></AppBar>
-        <header className="App-header">
+        <div className="App-content">
           <Switch>
             <Route path="/catalog">
               <Catalog />
@@ -24,7 +24,7 @@ function App() {
               <About />
             </Route>
           </Switch>
-        </header>
+        </div>
       </div >
     </Router>
   );
