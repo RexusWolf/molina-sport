@@ -7,19 +7,22 @@ import './appBar.css'
 import { Link } from 'react-router-dom';
 
 export default function ButtonAppBar() {
+  const linkStyle = {
+    textDecoration: 'none',
+  }
 
   return (
     <div data-testid="appbar">
       <AppBar position="static">
         <Toolbar>
-          <Link to="/catalog">
+          <Link to="/catalogo" style={linkStyle}>
             <Button color="secondary">Catálogo</Button>
           </Link>
           <Typography variant="h5" className="title">
             NEUMÁTICOS MOLINA SPORT
           </Typography>
-          <Link to="/about">
-            <Button color="secondary">About</Button>
+          <Link to="/info" style={linkStyle}>
+            <Button color="secondary">Información</Button>
           </Link>
         </Toolbar>
       </AppBar>
