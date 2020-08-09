@@ -3,6 +3,11 @@
 exports[`matches snapshot 1`] = `
 <div
   className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+  style={
+    Object {
+      "height": "520px",
+    }
+  }
 >
   <button
     className="MuiButtonBase-root MuiCardActionArea-root"
@@ -24,11 +29,16 @@ exports[`matches snapshot 1`] = `
     <img
       className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
       data-testid="item-img"
-      height="320"
+      height="300px"
       src="imgurl"
     />
     <div
       className="MuiCardContent-root"
+      style={
+        Object {
+          "height": "120px",
+        }
+      }
     >
       <h2
         className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
@@ -51,13 +61,13 @@ exports[`matches snapshot 1`] = `
     className="MuiCardActions-root MuiCardActions-spacing"
   >
     <div
-      className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+      className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-textSizeLarge MuiButton-sizeLarge"
           disabled={false}
           onBlur={[Function]}
           onDragLeave={[Function]}
@@ -81,7 +91,7 @@ exports[`matches snapshot 1`] = `
         </button>
       </div>
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
         <h4
           className="MuiTypography-root MuiTypography-h4"

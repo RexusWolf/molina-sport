@@ -15,16 +15,24 @@ interface CardProps {
   productPrice: number
 }
 
+const cardStyle = {
+  height: '520px'
+}
+
+const cardInfoStyle = {
+  height: '120px'
+}
+
 export const CatalogItem: React.FC<CardProps> = ({ productName, productImg, productDescription, productPrice }) => (
-  <Card>
+  <Card style={cardStyle}>
     <CardActionArea>
       <CardMedia
+        height="300px"
         data-testid="item-img"
         component="img"
-        height="320"
         image={productImg}
       />
-      <CardContent>
+      <CardContent style={cardInfoStyle}>
         <Typography gutterBottom variant="h5" component="h2" data-testid="item-name">
           {productName}
         </Typography>
@@ -34,13 +42,13 @@ export const CatalogItem: React.FC<CardProps> = ({ productName, productImg, prod
       </CardContent>
     </CardActionArea>
     <CardActions>
-      <Grid container spacing={3}>
-        <Grid item xs>
-          <Button color="primary">
+      <Grid container spacing={2}>
+        <Grid item xs={8}>
+          <Button size="large" color="primary">
             Ver producto
             </Button>
         </Grid>
-        <Grid item xs>
+        <Grid item xs={4}>
           <Typography variant="h4" data-testid="item-price">{productPrice}€</Typography>
         </Grid>
       </Grid>
