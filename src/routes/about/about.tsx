@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const openHours = [
   { morning: [9, 14], evening: [16, 21] },
   {
-    morning: [9, 14], evening: [17.20, 21]
+    morning: [9, 14], evening: [16, 21]
   },
   { morning: [9, 14], evening: [16, 21] },
   { morning: [9, 14], evening: [16, 21] },
@@ -64,6 +64,7 @@ export default function About() {
   const [open, setOpen] = React.useState(true);
 
   const isOpen: boolean = checkifOpen();
+  const shift: Shifts = getShift();
 
   const handleClick = () => {
     setOpen(!open);
@@ -106,67 +107,7 @@ export default function About() {
                     <ListItemText primary="Lunes" />
                   </Grid>
                   <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <Grid container justify="flex-start" spacing={7}>
-                  <Grid item>
-                    <ListItemText primary="Martes" />
-                  </Grid>
-                  <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <Grid container justify="flex-start" spacing={5}>
-                  <Grid item>
-                    <ListItemText primary="Miércoles" />
-                  </Grid>
-                  <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <Grid container justify="flex-start" spacing={8}>
-                  <Grid item>
-                    <ListItemText primary="Jueves" />
-                  </Grid>
-                  <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <Grid container justify="flex-start" spacing={8}>
-                  <Grid item>
-                    <ListItemText primary="Viernes" />
-                  </Grid>
-                  <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <Grid container justify="flex-start" spacing={8}>
-                  <Grid item>
-                    <ListItemText primary="Sábado" />
-                  </Grid>
-                  <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <Grid container justify="flex-start" spacing={7}>
-                  <Grid item>
-                    <ListItemText primary="Domingo" />
-                  </Grid>
-                  <Grid item>
-                    <ListItemText primary="9:00-14:00" secondary="17:00-20:30" />
+                    <ListItemText primary={shift === "morning" ? '9:00-14:00' : '17:00-20:30'} secondary={shift === "morning" ? '17:00-20:30' : '9:00-14:00'} />
                   </Grid>
                 </Grid>
               </ListItem>
