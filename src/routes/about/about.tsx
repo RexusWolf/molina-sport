@@ -22,7 +22,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const openHours = [
   { morning: [9, 14], evening: [16, 21] },
-  { morning: [9, 14], evening: [16, 21] },
+  {
+    morning: [9, 14], evening: [17.20, 21]
+  },
   { morning: [9, 14], evening: [16, 21] },
   { morning: [9, 14], evening: [16, 21] },
   { morning: [9, 14], evening: [16, 21] },
@@ -30,17 +32,29 @@ const openHours = [
   { morning: [9, 14], evening: [16, 21] },
 ]
 
-function checkifOpen(): boolean {
+type Shifts = "morning" | "evening";
+
+function getCurrentTime(): number {
   const currentDate: Date = new Date();
-  let currentDay: number = currentDate.getDay();
   let hour: number = currentDate.getHours();
+  let minutes: number = currentDate.getMinutes();
+  let currentTime: number = hour + minutes / 100;
+  return currentTime;
+}
 
-  if (hour >= openHours[currentDay].morning[0] && hour <= openHours[currentDay].morning[1])
+function getShift(): Shifts {
+  let currentTime: number = getCurrentTime();
+  if (currentTime < 14)
+    return "morning";
+  return "evening";
+}
+
+function checkifOpen(): boolean {
+  let currentTime: number = getCurrentTime();
+  let shift: Shifts = getShift()
+  let day = new Date().getDay();
+  if (currentTime >= openHours[day][shift][0] && currentTime <= openHours[day][shift][1])
     return true;
-
-  if (hour >= openHours[currentDay].evening[0] && hour <= openHours[currentDay].evening[1])
-    return true;
-
   return false;
 };
 
