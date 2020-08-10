@@ -17,7 +17,7 @@ function App() {
         <AppBar></AppBar>
         <div className="App-content">
           <Switch>
-            <Route path="/catalog">
+            <Route path="/catalogo">
               <Catalog />
             </Route>
             <Route path="/about">
