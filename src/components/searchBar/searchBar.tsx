@@ -5,37 +5,25 @@ interface SearchProps {
   onChange: any;
 }
 
-const inputProps = {
-  style: {
-    color: "white",
-  }
-};
-
 const CssTextField = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: 'yellow',
-    },
-    '& .MuiInputBase-root': {
-      color: 'white',
-    },
-    '& .MuiInputBase-root:before': {
-      color: 'white',
+      color: 'indigo',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'yellow',
+        borderColor: 'indigo',
       },
       '&:hover fieldset': {
-        borderColor: 'yellow',
+        borderColor: 'blue',
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'yellow',
+        borderColor: 'indigo',
       },
     },
   },
 })(TextField);
 
 export const SearchBar: React.FC<SearchProps> = ({ onChange }) => (
-  <CssTextField fullWidth variant="outlined" inputProps={inputProps} label="Buscador" margin="dense" InputLabelProps={inputProps} onChange={(event) => onChange(event.target.value)} />
+  <CssTextField fullWidth variant="outlined" label="Buscador" margin="dense" onChange={(event) => onChange(event.target.value)} />
 );

@@ -20,7 +20,7 @@ function App() {
             <Route path="/catalogo">
               <Catalog />
             </Route>
-            <Route path="/about">
+            <Route path="/info">
               <About />
             </Route>
           </Switch>

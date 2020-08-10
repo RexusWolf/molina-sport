@@ -24,7 +24,7 @@ const cardInfoStyle = {
 }
 
 export const CatalogItem: React.FC<CardProps> = ({ productName, productImg, productDescription, productPrice }) => (
-  <Card style={cardStyle}>
+  <Card variant="elevation" elevation={8} style={cardStyle}>
     <CardActionArea>
       <CardMedia
         height="300px"

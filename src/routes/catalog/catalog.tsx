@@ -3,7 +3,7 @@ import { CatalogItem } from '../../components/catalogItem/catalogItem';
 import { SearchBar } from '../../components/searchBar/searchBar';
 
 import { ProductContext } from '../../hooks/context/ProductContext';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, Typography } from '@material-ui/core';
 
 const catalogContainer = {
   padding: '20px',
@@ -23,12 +23,14 @@ export default function Catalog() {
 
   return (
     <Container style={catalogContainer}>
-      <Grid style={searchContainer} alignItems="center" container item spacing={2}>
+      <Grid style={searchContainer} alignItems="center" justify="flex-start" container item spacing={2}>
         <Grid item xs={12} sm={6}>
           <SearchBar onChange={(value: string) => setSearchValue(value)}></SearchBar>
         </Grid>
         <Grid item xs={12} sm={6}>
-          Resultados para: {searchValue}
+          <Typography align="left">
+            Se han encontrado {filteredproducts.length} resultados para: {searchValue}
+          </Typography>
         </Grid>
       </Grid>
       <Grid container item spacing={3}>

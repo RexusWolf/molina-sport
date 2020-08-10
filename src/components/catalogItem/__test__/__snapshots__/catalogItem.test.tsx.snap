@@ -2,7 +2,7 @@
 
 exports[`matches snapshot 1`] = `
 <div
-  className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root MuiPaper-elevation8 MuiPaper-rounded"
   style={
     Object {
       "height": "520px",

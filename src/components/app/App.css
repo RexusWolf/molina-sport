@@ -29,11 +29,10 @@
 }
 
 .App-content {
-  background-color: #282c34;
+  background-color: #fcfcfc;
   min-height: 100vh;
   display: flex;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 @keyframes App-logo-spin {
