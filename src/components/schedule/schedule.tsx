@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Grid, List, ListSubheader, ListItem, ListItemIcon } from '@material-ui/core';
+import { Grid, List, ListSubheader, ListItem, ListItemIcon, Typography } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
     nested: {
       paddingLeft: theme.spacing(8),
     },
+    dayGrid: {
+      width: '100px',
+    }
   }),
 );
 
@@ -44,12 +47,6 @@ function getShift(): Shift {
   return "evening";
 }
 
-function getDayName(): string {
-  let currentDate: Date = new Date();
-  let dayValue: number = currentDate.getDay();
-  return openHours[dayValue].day;
-}
-
 function getFormattedHours(openHoursArray: Array<number>) {
   let fixedOpenHoursArray = openHoursArray.map((hour) => hour.toFixed(2));
   let hoursOpenString = fixedOpenHoursArray.toString()
@@ -57,11 +54,11 @@ function getFormattedHours(openHoursArray: Array<number>) {
   return formattedHoursOpen;
 }
 
-function getOpenHoursInDayShift(): string {
+function getOpenHours(): Array<number> {
   let day = new Date().getDay()
   let shift: Shift = getShift();
   let openHoursArray = openHours[day][shift];
-  return getFormattedHours(openHoursArray);
+  return openHoursArray;
 }
 
 function checkIfOpen(): boolean {
@@ -80,9 +77,8 @@ export const Schedule: React.FC = () => {
 
   const isOpen: boolean = checkIfOpen();
   const shift: Shift = getShift();
-  const dayName: string = getDayName();
-  const currentOpenHours: string = getOpenHoursInDayShift();
-  const getShiftInfo: string = dayName.concat(" ").concat(currentOpenHours);
+  const currentOpenHours: Array<number> = getOpenHours();
+  const closeHourToday: string = currentOpenHours[1].toFixed(2).toString();
 
   const handleClick = () => {
     setOpen(!open);
@@ -92,9 +88,9 @@ export const Schedule: React.FC = () => {
     <List
       component="nav"
       subheader={
-        < ListSubheader >
-          Horario
-            </ListSubheader>
+        <Typography variant="h5">
+          Horario de apertura
+        </Typography>
       }
     >
       <ListItem button onClick={handleClick}>
@@ -102,15 +98,15 @@ export const Schedule: React.FC = () => {
           <AccessTimeIcon />
         </ListItemIcon>
 
-        <ListItemText primary={isOpen ? ('Abierto ahora, '.concat(getShiftInfo)) : 'Cerrado ahora'} />
+        <ListItemText primary={isOpen ? ('Abierto ⋅ Cierra a las '.concat(closeHourToday)) : 'Cerrado ahora'} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-
           {openHours.map((openHour) => {
             return <ListItem button className={classes.nested}>
-              <Grid container spacing={4}><Grid item><ListItemText primary={openHour.day} /></Grid>
+              <Grid container spacing={4}>
+                <Grid className={classes.dayGrid} item><ListItemText primary={openHour.day} /></Grid>
                 <Grid item>
                   <ListItemText primary={shift === "morning" ? (getFormattedHours(openHour.morning)) : (getFormattedHours(openHour.evening))} secondary={shift === "morning" ? getFormattedHours((openHour.evening)) : getFormattedHours((openHour.morning))} />
                 </Grid>
