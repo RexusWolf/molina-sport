@@ -33,7 +33,7 @@ export default function About() {
 
   return (
     <Grid className={classes.grids} container justify="space-around" spacing={2}>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={4} md={6}>
         <Card>
           <CardActionArea>
             <CardMedia
@@ -57,7 +57,7 @@ export default function About() {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item container xs={6} spacing={2}>
+      <Grid item container xs={12} sm={8} md={6} spacing={2}>
         <Grid item xs={6}>
           <Paper className={classes.paper} elevation={3}><LocationOnIcon></LocationOnIcon>
             <Typography variant="h6">Dirección:</Typography><Typography>Calle Ronda de Andújar, 2,<br></br>14002, Córdoba</Typography>
