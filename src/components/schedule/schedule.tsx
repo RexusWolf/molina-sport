@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Grid, List, ListSubheader, ListItem, ListItemIcon, Typography } from '@material-ui/core';
+import { Grid, List, ListItem, ListItemIcon } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';

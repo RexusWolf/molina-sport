@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     media: {
       height: 320,
+    },
+    infogrid: {
+      height: 120,
     }
   }),
 );
@@ -29,7 +32,7 @@ export default function About() {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.grids} container alignItems="center" justify="space-around" spacing={2}>
+    <Grid className={classes.grids} container justify="space-around" spacing={2}>
       <Grid item xs={6}>
         <Card>
           <CardActionArea>
@@ -60,7 +63,7 @@ export default function About() {
             <Typography variant="h6">Dirección:</Typography><Typography>Calle Ronda de Andújar, 2,<br></br>14002, Córdoba</Typography>
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid className={classes.infogrid} item xs={6}>
           <Paper className={classes.paper} elevation={3}><PhoneIcon></PhoneIcon>
             <Typography variant="h6">Teléfono:</Typography><Typography>957 26 47 05</Typography>
           </Paper>
