@@ -87,11 +87,6 @@ export const Schedule: React.FC = () => {
   return (
     <List
       component="nav"
-      subheader={
-        <Typography variant="h5">
-          Horario de apertura
-        </Typography>
-      }
     >
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
