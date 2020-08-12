@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles, Grid, Typography, Button, withTheme } from '@material-ui/core';
+import { makeStyles, Theme, createStyles, Grid, Typography, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,15 +12,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       height: '100%',
+      borderRadius: '0',
     },
     link: {
       textDecoration: 'none',
     },
     catalogButton: {
-      background: 'linear-gradient(to right, #396afc, #2948ff)',
+      background: 'linear-gradient(to right, #6441a4 , #730099)',
       color: 'white',
       "&:hover": {
-        background: 'linear-gradient(to right, #06beb6, #48b1bf)'
+        background: 'linear-gradient(to right, #9d50bb, #6e48aa)'
       }
     },
     infoButton: {

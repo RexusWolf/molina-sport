@@ -5,6 +5,7 @@ import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core';
 import { yellow, indigo } from '@material-ui/core/colors';
+import './fonts/OPTIEdgarBold-Extended.otf'
 
 const theme = createMuiTheme({
   palette: {

@@ -32,7 +32,7 @@ export default function About() {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.grids} container justify="space-around" spacing={2}>
+    <Grid className={classes.grids} container justify="space-around">
       <Grid item xs={12} sm={4} md={6}>
         <Card>
           <CardActionArea>

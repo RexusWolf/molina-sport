@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'OPTIEdgar';
+  src: local('OPTIEdgar'), url(./fonts/OPTIEdgarBold-Extended.otf) format('truetype');
+}

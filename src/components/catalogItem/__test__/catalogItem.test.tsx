@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { CatalogItem } from '../catalogItem'
 
 import { render, cleanup } from "@testing-library/react"
-import "@testing-library/jest-dom/extend-expect"
+import "../../navBar/__test__/node_modules/@testing-library/jest-dom/extend-expect"
 import renderer from "react-test-renderer"
 
 afterEach(cleanup);
