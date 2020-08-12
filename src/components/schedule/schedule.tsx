@@ -2,10 +2,7 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Grid, List, ListItem, ListItemIcon } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -72,43 +69,33 @@ function checkIfOpen(): boolean {
 
 export const Schedule: React.FC = () => {
   const classes = useStyles();
-
-  const [open, setOpen] = React.useState(true);
-
   const isOpen: boolean = checkIfOpen();
   const shift: Shift = getShift();
   const currentOpenHours: Array<number> = getOpenHours();
   const closeHourToday: string = currentOpenHours[1].toFixed(2).toString();
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   return (
     <List
       component="nav"
     >
-      <ListItem button onClick={handleClick}>
+      <ListItem button>
         <ListItemIcon>
           <AccessTimeIcon />
         </ListItemIcon>
 
         <ListItemText primary={isOpen ? ('Abierto ⋅ Cierra a las '.concat(closeHourToday)) : 'Cerrado ahora'} />
-        {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {openHours.map((openHour) => {
-            return <ListItem button className={classes.nested}>
-              <Grid container spacing={4}>
-                <Grid className={classes.dayGrid} item><ListItemText primary={openHour.day} /></Grid>
-                <Grid item>
-                  <ListItemText primary={shift === "morning" ? (getFormattedHours(openHour.morning)) : (getFormattedHours(openHour.evening))} secondary={shift === "morning" ? getFormattedHours((openHour.evening)) : getFormattedHours((openHour.morning))} />
-                </Grid>
+      <List component="div" disablePadding>
+        {openHours.map((openHour) => {
+          return <ListItem button className={classes.nested}>
+            <Grid container spacing={4}>
+              <Grid className={classes.dayGrid} item><ListItemText primary={openHour.day} /></Grid>
+              <Grid item>
+                <ListItemText primary={shift === "morning" ? (getFormattedHours(openHour.morning)) : (getFormattedHours(openHour.evening))} secondary={shift === "morning" ? getFormattedHours((openHour.evening)) : getFormattedHours((openHour.morning))} />
               </Grid>
-            </ListItem>
-          })}
-        </List>
-      </Collapse>
+            </Grid>
+          </ListItem>
+        })}
+      </List>
     </List >);
 }
