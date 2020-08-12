@@ -8,6 +8,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Home from '../../routes/home';
 
 function App() {
 
@@ -17,10 +18,13 @@ function App() {
         <AppBar></AppBar>
         <div className="App-content">
           <Switch>
-            <Route path="/catalogo">
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/catalogo" exact>
               <Catalog />
             </Route>
-            <Route path="/info">
+            <Route path="/info" exact>
               <About />
             </Route>
           </Switch>

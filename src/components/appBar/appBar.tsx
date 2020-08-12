@@ -18,9 +18,11 @@ export default function ButtonAppBar() {
           <Link to="/catalogo" style={linkStyle}>
             <Button color="secondary">Catálogo</Button>
           </Link>
-          <Typography variant="h5" className="title">
-            NEUMÁTICOS MOLINA SPORT
+          <Link to="/" className="title" style={linkStyle}>
+            <Typography color="secondary" variant="h5">
+              NEUMÁTICOS MOLINA SPORT
           </Typography>
+          </Link>
           <Link to="/info" style={linkStyle}>
             <Button color="secondary">Información</Button>
           </Link>
