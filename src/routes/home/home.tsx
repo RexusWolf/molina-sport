@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      background: 'linear-gradient(to right, #ffd89b, #19547b)',
-    },
     grid: {
       height: '100%',
     },
@@ -18,17 +15,17 @@ const useStyles = makeStyles((theme: Theme) =>
       textDecoration: 'none',
     },
     catalogButton: {
-      background: 'linear-gradient(to right, #6441a4 , #730099)',
+      background: 'linear-gradient(to right, #000000, #303030)',
       color: 'white',
       "&:hover": {
-        background: 'linear-gradient(to right, #9d50bb, #6e48aa)'
-      }
+        background: 'linear-gradient(to right, #303030, #525252)'
+      },
     },
     infoButton: {
-      background: 'linear-gradient(to right, #f7971e, #ffd200)',
-      color: 'white',
+      background: 'linear-gradient(to right, #c97000, #e8a200)',
+      color: 'black',
       "&:hover": {
-        background: 'linear-gradient(to right, #f2994a, #f2c94c)',
+        background: 'linear-gradient(to right, #e8a200, #ffb200)',
       }
     }
   }),
@@ -38,7 +35,7 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.root} item container alignItems="center" justify="space-around">
+    <Grid item container alignItems="center" justify="space-around">
       <Grid className={classes.grid} item xs={12} sm={6}>
         <Link className={classes.link} to="/catalogo">
           <Button fullWidth className={`${classes.button} ${classes.catalogButton}`} >

@@ -49,7 +49,7 @@ export default function About() {
                 Sobre el taller
           </Typography>
               <Typography variant="body1" component="p">
-                Neumaticos Molina Sport un el centro de montaje de neumáticos en Córdoba. Si desea enviarlo directamente a su taller, no es necesario que contacte con el taller de montaje, una vez entre en el apartado de pedidos podrá indicar el día y la hora en la que irá a montar sus neumáticos; automáticamente el taller escogido recibirá un correo electrónico informándole de la cita seleccionada
+                Neumaticos Molina Sport es taller de venta y reparación de neumáticos y mantenimiento de vehículos. Pulido de faros con polímeros, carga, revisión y relleno de aire acondicionado, alineación de la dirección y muchos más servicios son los que se ofrecen en el taller.
           </Typography>
             </CardContent>
           </CardActionArea>
