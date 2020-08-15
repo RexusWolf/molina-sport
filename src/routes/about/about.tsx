@@ -8,12 +8,15 @@ import { Schedule } from '../../components/schedule'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    grids: {
+    gridsContainer: {
       height: 100,
-      padding: 30,
+      margin: 30,
+    },
+    grid: {
+      padding: 10,
     },
     paper: {
-      height: 120,
+      height: 130,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -32,8 +35,8 @@ export default function About() {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.grids} container justify="space-around">
-      <Grid item xs={12} sm={4} md={6}>
+    <Grid className={classes.gridsContainer} container justify="space-between">
+      <Grid className={classes.grid} item xs={12} sm={4} md={6} justify="center">
         <Card>
           <CardActionArea>
             <CardMedia
@@ -57,7 +60,7 @@ export default function About() {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item container xs={12} sm={8} md={6} spacing={2}>
+      <Grid className={classes.grid} item container xs={12} sm={8} md={6} spacing={2}>
         <Grid item xs={6}>
           <Paper className={classes.paper} elevation={3}><LocationOnIcon></LocationOnIcon>
             <Typography variant="h6">Dirección:</Typography><Typography>Calle Ronda de Andújar, 2,<br></br>14002, Córdoba</Typography>
