@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { NavBar } from '../navBar/navBar';
 import Catalog from '../../routes/catalog'
 import About from '../../routes/about'
@@ -9,17 +8,33 @@ import {
   Route,
 } from "react-router-dom";
 import Home from '../../routes/home';
-import { Grid } from '@material-ui/core';
+import { Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      textAlign: 'center',
+    },
+    navbar: {
+      minHeight: '7vh',
+    },
+    content: {
+      display: 'flex',
+      height: '93vh',
+    }
+  }),
+);
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
+    <div className={classes.root}>
       <Router>
         <Grid container>
-          <Grid item xs={12} className="App-bar">
+          <Grid item xs={12} className={classes.navbar}>
             <NavBar></NavBar>
           </Grid>
-          <Grid item className="App-content" xs={12}>
+          <Grid item className={classes.content} xs={12}>
             <Switch>
               <Route path="/" exact>
                 <Home />
