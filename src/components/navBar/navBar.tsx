@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { NavLink, BrowserRouter as Router } from 'react-router-dom';
 import { makeStyles, createStyles, Theme, Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -29,20 +29,20 @@ export const NavBar: React.FC = () => {
   return (
     <AppBar className={classes.navBar} position="static">
       <Toolbar>
-        <Link to="/catalogo" className={classes.link}>
+        <NavLink to="/catalogo" className={classes.link}>
           <Button color="secondary"><Typography className={classes.font}>Catálogo</Typography></Button>
-        </Link>
+        </NavLink>
         <Box className={classes.title}
           display={{ xs: "none", md: "block" }}>
-          <Link to="/" className={classes.link}>
+          <NavLink to="/" className={classes.link}>
             <Typography className={classes.font} color="secondary" variant="h5">
               NEUMÁTICOS MOLINA SPORT
           </Typography>
-          </Link>
+          </NavLink>
         </Box>
-        <Link to="/info" className={classes.link}>
+        <NavLink to="/info" className={classes.link}>
           <Button color="secondary"><Typography className={classes.font}>Información</Typography></Button>
-        </Link>
+        </NavLink>
       </Toolbar>
     </AppBar>
   );
