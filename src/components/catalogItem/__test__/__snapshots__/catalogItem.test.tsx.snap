@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`CatalogItem component matches snapshot 1`] = `
 <div
   className="MuiPaper-root MuiCard-root MuiPaper-elevation8 MuiPaper-rounded"
   style={

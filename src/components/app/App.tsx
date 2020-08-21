@@ -2,12 +2,12 @@ import React from 'react';
 import { NavBar } from '../navBar/navBar';
 import Catalog from '../../routes/catalog'
 import About from '../../routes/about'
+import Home from '../../routes/home';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import Home from '../../routes/home';
 import { Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,28 +28,22 @@ const useStyles = makeStyles((theme: Theme) =>
 function App() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Router>
+    <Router>
+      <div className={classes.root}>
         <Grid container>
           <Grid item xs={12} className={classes.navbar}>
-            <NavBar></NavBar>
+            <NavBar />
           </Grid>
           <Grid item className={classes.content} xs={12}>
             <Switch>
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/catalogo" exact>
-                <Catalog />
-              </Route>
-              <Route path="/info" exact>
-                <About />
-              </Route>
+              <Route path="/" exact component={Home} />
+              <Route path="/catalogo" exact component={Catalog} />
+              <Route path="/info" exact component={About} />
             </Switch>
           </Grid>
         </Grid>
-      </Router>
-    </div >
+      </div >
+    </Router>
   );
 }
 
