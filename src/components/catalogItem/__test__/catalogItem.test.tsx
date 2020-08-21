@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
-import { CatalogItem } from '../catalogItem'
-import { extend, expect } from "@testing-library/extend-expect"
-import { render } from "@testing-library/react"
-import renderer from "react-test-renderer"
+import ReactDOM from 'react-dom';
+import { CatalogItem } from '../catalogItem';
+import '@testing-library/jest-dom/extend-expect';
+import { render } from "@testing-library/react";
+import renderer from "react-test-renderer";
 
 describe('CatalogItem component', () => {
   const defaultProps = {
@@ -25,11 +25,9 @@ describe('CatalogItem component', () => {
 
   it("renders item correctly", () => {
     const { getByTestId } = render(<CatalogItem productName="name" productDescription="description" productImg="imgurl" productPrice={22} ></CatalogItem >);
-    expect(getByTestId('item-name')).toHaveTextContent("name")
-    expect(getByTestId('item-description')).toHaveTextContent("description")
-    expect(getByTestId('item-price')).toHaveTextContent("22€")
-    const { getByText } = render(<CategoryMenu {...props} />);
-
+    expect(getByTestId('item-name')).toHaveTextContent("name");
+    expect(getByTestId('item-description')).toHaveTextContent("description");
+    expect(getByTestId('item-price')).toHaveTextContent("22€");
   })
 
   it("matches snapshot", () => {

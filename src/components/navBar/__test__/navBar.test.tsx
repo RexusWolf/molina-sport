@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { NavBar } from '../navBar'
-
-import "@testing-library/jest-dom/extend-expect"
+import { NavBar } from '../navBar';
+import '@testing-library/jest-dom/extend-expect';
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
