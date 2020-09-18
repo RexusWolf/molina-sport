@@ -12,6 +12,7 @@ export const ProductCreator: React.FC<ProductCreatorProps> = ({
   const [productName, setProductName] = React.useState('');
   const [productImg, setProductImg] = React.useState('');
   const [productDescription, setProductDescription] = React.useState('');
+  const [productPrice, setProductPrice] = React.useState(0);
 
   const updateProductName = (event: ChangeEvent<HTMLInputElement>) => {
     setProductName(event.target.value);
@@ -22,25 +23,42 @@ export const ProductCreator: React.FC<ProductCreatorProps> = ({
   const updateProductDescription = (event: ChangeEvent<HTMLInputElement>) => {
     setProductDescription(event.target.value);
   };
+  const updateProductPrice = (event: ChangeEvent<HTMLInputElement>) => {
+    setProductPrice(parseInt(event.target.value));
+  };
 
   const onAddProductClick = () => {
     const product: Product = {
       productName: productName,
       productImg: productImg,
       productDescription: productDescription,
-      productPrice: 22,
+      productPrice: productPrice,
     };
     addProduct(product);
     setProductDescription('');
     setProductImg('');
     setProductName('');
+    setProductPrice(0);
   };
 
   return (
     <FormControl>
-      <input onChange={updateProductName} name="productName" />
-      <input onChange={updateProductImg} name="productImg" />
-      <input onChange={updateProductDescription} name="productDescription" />
+      <input
+        placeholder="Name"
+        onChange={updateProductName}
+        name="productName"
+      />
+      <input placeholder="Img" onChange={updateProductImg} name="productImg" />
+      <input
+        placeholder="Description"
+        onChange={updateProductDescription}
+        name="productDescription"
+      />
+      <input
+        placeholder="Price"
+        onChange={updateProductPrice}
+        name="productPrice"
+      />
       <Button variant="contained" onClick={onAddProductClick} type="submit">
         ADD PRODUCT
       </Button>
