@@ -5,7 +5,9 @@ import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core';
 import { yellow, indigo } from '@material-ui/core/colors';
-import './fonts/OPTIEdgarBold-Extended.otf'
+import './fonts/OPTIEdgarBold-Extended.otf';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const theme = createMuiTheme({
   palette: {
@@ -18,8 +20,11 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App /></ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

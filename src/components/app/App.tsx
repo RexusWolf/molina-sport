@@ -1,13 +1,10 @@
 import React from 'react';
+
 import { NavBar } from '../navBar/navBar';
-import Catalog from '../../routes/catalog'
-import About from '../../routes/about'
+import Catalog from '../../routes/catalog';
+import About from '../../routes/about';
 import Home from '../../routes/home';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -21,8 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
     content: {
       display: 'flex',
       height: '93vh',
-    }
-  }),
+    },
+  })
 );
 
 function App() {
@@ -42,7 +39,7 @@ function App() {
             </Switch>
           </Grid>
         </Grid>
-      </div >
+      </div>
     </Router>
   );
 }
