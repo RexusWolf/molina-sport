@@ -22,25 +22,28 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const Routers = () => (
+  <Switch>
+    <Route path="/" exact component={Home} />
+    <Route path="/catalogo" exact component={Catalog} />
+    <Route path="/info" exact component={About} />
+  </Switch>
+);
 function App() {
   const classes = useStyles();
   return (
-    <Router>
-      <div className={classes.root}>
-        <Grid container>
+    <div className={classes.root}>
+      <Grid container>
+        <Router>
           <Grid item xs={12} className={classes.navbar}>
             <NavBar />
           </Grid>
           <Grid item className={classes.content} xs={12}>
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/catalogo" exact component={Catalog} />
-              <Route path="/info" exact component={About} />
-            </Switch>
+            <Routers />
           </Grid>
-        </Grid>
-      </div>
-    </Router>
+        </Router>
+      </Grid>
+    </div>
   );
 }
 

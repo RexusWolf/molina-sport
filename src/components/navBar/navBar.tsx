@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     font: {
       fontFamily: 'OPTIEdgar',
     },
-  }),
+  })
 );
 
 export const NavBar: React.FC = () => {
@@ -30,20 +30,23 @@ export const NavBar: React.FC = () => {
     <AppBar className={classes.navBar} position="static">
       <Toolbar>
         <NavLink to="/catalogo" className={classes.link}>
-          <Button color="secondary"><Typography className={classes.font}>Catálogo</Typography></Button>
+          <Button color="secondary">
+            <Typography className={classes.font}>Catálogo</Typography>
+          </Button>
         </NavLink>
-        <Box className={classes.title}
-          display={{ xs: "none", md: "block" }}>
+        <Box className={classes.title} display={{ xs: 'none', md: 'block' }}>
           <NavLink to="/" className={classes.link}>
             <Typography className={classes.font} color="secondary" variant="h5">
               NEUMÁTICOS MOLINA SPORT
-          </Typography>
+            </Typography>
           </NavLink>
         </Box>
         <NavLink to="/info" className={classes.link}>
-          <Button color="secondary"><Typography className={classes.font}>Información</Typography></Button>
+          <Button color="secondary">
+            <Typography className={classes.font}>Información</Typography>
+          </Button>
         </NavLink>
       </Toolbar>
     </AppBar>
   );
-}
+};
