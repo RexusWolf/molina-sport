@@ -1,4 +1,5 @@
-import { ADD_PRODUCT, ProductAction } from '../types/actions';
+import { AnyAction } from 'redux';
+import { ADD_PRODUCT } from '../types/actions';
 import { ProductsState } from '../types/Product';
 
 const initialProducts: ProductsState = {
@@ -7,7 +8,7 @@ const initialProducts: ProductsState = {
 
 export const productsReducer = (
   state: ProductsState = initialProducts,
-  action: ProductAction
+  action: AnyAction
 ): ProductsState => {
   switch (action.type) {
     case ADD_PRODUCT:

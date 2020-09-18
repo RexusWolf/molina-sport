@@ -3,9 +3,10 @@ import { CatalogItem } from '../../components/catalogItem/catalogItem';
 import { SearchBar } from '../../components/searchBar/searchBar';
 import { Grid, Container, Typography } from '@material-ui/core';
 import { ProductCreator } from '../../components/ProductCreator';
-import { useDispatch, useSelector } from 'react-redux';
-import { Product, ProductsState } from '../../store/types/Product';
+import { useDispatch } from 'react-redux';
+import { Product } from '../../store/types/Product';
 import { ADD_PRODUCT } from '../../store/types/actions';
+import { useTypedSelector } from '../../store/reducers/rootReducer';
 
 const catalogContainer = {
   padding: '20px',
@@ -16,9 +17,7 @@ const searchContainer = {
 };
 
 export default function Catalog() {
-  const products = useSelector<ProductsState, ProductsState['products']>(
-    (state) => state.products
-  );
+  const products = useTypedSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
   const addProduct = (product: Product) => {

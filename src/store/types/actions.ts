@@ -13,6 +13,6 @@ export interface deleteProduct {
   payload: Product;
 }
 
-export type ProductAction = addProduct | deleteProduct;
+export type ProductActionTypes = addProduct | deleteProduct;
 
-export type AppActions = ProductAction;
+export type AppActions = ProductActionTypes;
