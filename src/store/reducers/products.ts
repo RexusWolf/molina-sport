@@ -25,7 +25,7 @@ export const productsReducer = (
         ],
       };
     default:
-      return state;
+      return { ...state };
   }
 };
 

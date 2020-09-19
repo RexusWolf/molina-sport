@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CatalogItem } from '../../components/catalogItem/catalogItem';
 import { SearchBar } from '../../components/searchBar/searchBar';
-import { Grid, Container, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { ProductCreator } from '../../components/ProductCreator';
 import { useDispatch } from 'react-redux';
 import { Product } from '../../store/types/Product';
@@ -26,50 +26,57 @@ export default function Catalog() {
 
   const [searchValue, setSearchValue] = useState('');
 
-  let filteredproducts = products.filter((product: Product) => {
-    return (
-      product.productName.toLowerCase().indexOf(searchValue.toLowerCase()) !==
-      -1
-    );
-  });
+  const filteredProducts = (products: Product[]): Product[] => {
+    let newProducts = products.filter((product: Product) => {
+      return (
+        product.productName.toLowerCase().indexOf(searchValue.toLowerCase()) !==
+        -1
+      );
+    });
+    return newProducts;
+  };
 
   return (
-    <Container style={catalogContainer}>
-      <ProductCreator addProduct={addProduct} />
-      <Grid
-        style={searchContainer}
-        alignItems="center"
-        justify="flex-start"
-        container
-        item
-        spacing={2}
-      >
-        <Grid item xs={12} sm={6}>
-          <SearchBar
-            onChange={(value: string) => setSearchValue(value)}
-          ></SearchBar>
+    <Grid container style={catalogContainer}>
+      <Grid item md={4} sm={12}>
+        <ProductCreator addProduct={addProduct} />
+      </Grid>
+      <Grid item md={8} sm={12}>
+        <Grid
+          style={searchContainer}
+          alignItems="center"
+          justify="flex-start"
+          container
+          item
+          spacing={2}
+        >
+          <Grid item xs={12} sm={6}>
+            <SearchBar
+              onChange={(value: string) => setSearchValue(value)}
+            ></SearchBar>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography align="left">
+              Se han encontrado {filteredProducts(products).length} resultados
+              para: {searchValue}
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Typography align="left">
-            Se han encontrado {filteredproducts.length} resultados para:{' '}
-            {searchValue}
-          </Typography>
+        <Grid container item spacing={3}>
+          {filteredProducts(products).map((product) => {
+            return (
+              <Grid item xs={12} sm={6} md={3}>
+                <CatalogItem
+                  productName={product.productName}
+                  productPrice={product.productPrice}
+                  productDescription={product.productDescription}
+                  productImg={product.productImg}
+                ></CatalogItem>
+              </Grid>
+            );
+          })}
         </Grid>
       </Grid>
-      <Grid container item spacing={3}>
-        {filteredproducts.map((product) => {
-          return (
-            <Grid item xs={12} sm={6} md={3}>
-              <CatalogItem
-                productName={product.productName}
-                productPrice={product.productPrice}
-                productDescription={product.productDescription}
-                productImg={product.productImg}
-              ></CatalogItem>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Container>
+    </Grid>
   );
 }
