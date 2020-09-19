@@ -14,7 +14,15 @@ export const productsReducer = (
     case ADD_PRODUCT:
       return {
         ...state,
-        products: [...state.products, action.payload],
+        products: [
+          ...state.products,
+          {
+            productName: action.payload.productName,
+            productDescription: action.payload.productDescription,
+            productImg: action.payload.productImg,
+            productPrice: action.payload.productPrice,
+          },
+        ],
       };
     default:
       return state;

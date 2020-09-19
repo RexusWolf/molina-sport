@@ -1,67 +1,32 @@
-import { Button, FormControl } from '@material-ui/core';
-import React, { ChangeEvent } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Button } from '@material-ui/core';
 import { Product } from '../../store/types/Product';
 
-interface ProductCreatorProps {
+interface Props {
   addProduct(product: Product): void;
 }
 
-export const ProductCreator: React.FC<ProductCreatorProps> = ({
-  addProduct,
-}) => {
-  const [productName, setProductName] = React.useState('');
-  const [productImg, setProductImg] = React.useState('');
-  const [productDescription, setProductDescription] = React.useState('');
-  const [productPrice, setProductPrice] = React.useState(0);
+export const ProductCreator: React.FC<Props> = ({ addProduct }) => {
+  const { register, handleSubmit } = useForm();
 
-  const updateProductName = (event: ChangeEvent<HTMLInputElement>) => {
-    setProductName(event.target.value);
-  };
-  const updateProductImg = (event: ChangeEvent<HTMLInputElement>) => {
-    setProductImg(event.target.value);
-  };
-  const updateProductDescription = (event: ChangeEvent<HTMLInputElement>) => {
-    setProductDescription(event.target.value);
-  };
-  const updateProductPrice = (event: ChangeEvent<HTMLInputElement>) => {
-    setProductPrice(parseInt(event.target.value));
-  };
-
-  const onAddProductClick = () => {
-    const product: Product = {
-      productName: productName,
-      productImg: productImg,
-      productDescription: productDescription,
-      productPrice: productPrice,
-    };
+  const onSubmit = (product: Product) => {
     addProduct(product);
-    setProductDescription('');
-    setProductImg('');
-    setProductName('');
-    setProductPrice(0);
   };
 
   return (
-    <FormControl>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input ref={register} placeholder="Name" name="productName" />
+      <input ref={register} placeholder="Img" name="productImg" />
       <input
-        placeholder="Name"
-        onChange={updateProductName}
-        name="productName"
-      />
-      <input placeholder="Img" onChange={updateProductImg} name="productImg" />
-      <input
+        ref={register}
         placeholder="Description"
-        onChange={updateProductDescription}
         name="productDescription"
       />
-      <input
-        placeholder="Price"
-        onChange={updateProductPrice}
-        name="productPrice"
-      />
-      <Button variant="contained" onClick={onAddProductClick} type="submit">
+      <input ref={register} placeholder="Price" name="productPrice" />
+      <Button variant="contained" type="submit">
         ADD PRODUCT
       </Button>
-    </FormControl>
+    </form>
   );
 };
