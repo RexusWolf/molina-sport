@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { NavBar } from '../navBar';
-import '@testing-library/jest-dom/extend-expect';
+import { NavBar } from '../NavBar';
+import '../../../Catalog/catalogItem/__test__/node_modules/@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
 
 it('renders without crashing', () => {

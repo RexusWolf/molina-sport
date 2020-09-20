@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
-import { Product } from '../../store/types/Product';
+import { Product } from '../store/types/Product';
 
 interface Props {
   addProduct(product: Product): void;
@@ -37,6 +37,7 @@ export const ProductCreator: React.FC<Props> = ({ addProduct }) => {
                   message: 'Name must have less than 64 characters',
                 },
               })}
+              error={errors.productName}
               placeholder="Name"
               name="productName"
             />
@@ -55,6 +56,7 @@ export const ProductCreator: React.FC<Props> = ({ addProduct }) => {
               })}
               placeholder="Img"
               name="productImg"
+              error={!!errors.productImg}
             />
             {errors.productImg && (
               <Typography>{errors.productImg.message}</Typography>
@@ -71,6 +73,7 @@ export const ProductCreator: React.FC<Props> = ({ addProduct }) => {
               })}
               placeholder="Description"
               name="productDescription"
+              error={errors.productDescription}
             />
             {errors.productDescription && (
               <Typography>{errors.productDescription.message}</Typography>
@@ -87,6 +90,7 @@ export const ProductCreator: React.FC<Props> = ({ addProduct }) => {
               })}
               placeholder="Price"
               name="productPrice"
+              error={!!errors.productPrice}
             />
             {errors.productPrice && (
               <Typography>{errors.productPrice.message}</Typography>

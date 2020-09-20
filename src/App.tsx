@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { NavBar } from '../navBar/navBar';
-import Catalog from '../../routes/catalog';
-import About from '../../routes/about';
-import Home from '../../routes/home';
+import { NavBar } from './shared/NavBar';
+import Catalog from './Catalog';
+import About from './About';
+import Home from './Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
 
