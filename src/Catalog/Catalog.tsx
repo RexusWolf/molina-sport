@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { CatalogItem } from '../../components/catalogItem/catalogItem';
-import { SearchBar } from '../../components/searchBar/searchBar';
+import { CatalogItem } from './CatalogItem';
+import { SearchBar } from '../shared/SearchBar';
 import { Grid, Typography } from '@material-ui/core';
-import { ProductCreator } from '../../components/ProductCreator';
+import { ProductCreator } from './ProductCreator';
 import { useDispatch } from 'react-redux';
-import { Product } from '../../store/types/Product';
-import { ADD_PRODUCT } from '../../store/types/actions';
-import { useTypedSelector } from '../../store/reducers/rootReducer';
+import { Product } from '../store/types/Product';
+import { ADD_PRODUCT } from '../store/types/actions';
+import { useTypedSelector } from '../store/reducers/rootReducer';
 
 const catalogContainer = {
   padding: '20px',
